@@ -1,4 +1,4 @@
 package com.example;
 
-public class Feline {
+public class Alex {
 }
