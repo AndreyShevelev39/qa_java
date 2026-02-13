@@ -2,11 +2,11 @@ package com.example;
 
 import java.util.List;
 
-public class CatTest {
+public class Cat {
 
-    Predator predator;
+    private final Predator predator;
 
-    public CatTest(FelineTest feline) {
+    public Cat(Feline feline) {
         this.predator = feline;
     }
 
@@ -15,7 +15,7 @@ public class CatTest {
     }
 
     public List<String> getFood() throws Exception {
-        return predator.eatMeat();
+        return predator.getFood("Хищник");
     }
 
 }

@@ -20,7 +20,7 @@ public class LionParameterizedTest {
     public static Object[][] getData() {
         return new Object[][]{
                 {"Самец", true},
-                {"Самка", false},
+                {"Самка", false}
         };
     }
 
