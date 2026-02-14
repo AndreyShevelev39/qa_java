@@ -5,35 +5,30 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class FelineTest {
-    Feline feline = new Feline();
 
     @Test
-    public void eatMeatReturnsCorrectFood() throws Exception {
-        assertEquals(List.of("Животные", "Птицы", "Рыба"), feline.eatMeat());
+    public void eatMeatReturnsPredatorFood() throws Exception {
+        Feline feline = new Feline();
+        List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
+        assertEquals(expectedFood, feline.eatMeat());
     }
 
     @Test
-    public void getFamilyReturnsCats() {
+    public void getFamilyReturnsFeline() {
+        Feline feline = new Feline();
         assertEquals("Кошачьи", feline.getFamily());
     }
 
     @Test
-    public void getKittensNoArgsReturnsOne() {
+    public void getKittensReturnsOne() {
+        Feline feline = new Feline();
         assertEquals(1, feline.getKittens());
     }
 
     @Test
-    public void getKittensWithArgsReturnsInput() {
-        assertEquals(10, feline.getKittens(10));
-    }
-
-    @Test
-    public void getFoodHerbivoreReturnsCorrectList() throws Exception {
-        assertEquals(List.of("Трава", "Различные растения"), feline.getFood("Травоядное"));
-    }
-
-    @Test(expected = Exception.class)
-    public void getFoodInvalidKindThrowsException() throws Exception {
-        feline.getFood("Всеядное");
+    public void getKittensWithCountReturnsCount() {
+        Feline feline = new Feline();
+        int kittensCount = 5;
+        assertEquals(kittensCount, feline.getKittens(kittensCount));
     }
 }

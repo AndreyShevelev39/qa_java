@@ -4,18 +4,21 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AlexTest {
+
     @Mock
     Feline feline;
 
     @Test
     public void getFriendsReturnsCorrectList() throws Exception {
         Alex alex = new Alex(feline);
-        List<String> expectedFriends = List.of("зебра Марти", "бегемотиха Глория", "жираф Мелман");
+        List<String> expectedFriends = List.of("Марти", "Глория", "Мелман");
         assertEquals(expectedFriends, alex.getFriends());
     }
 

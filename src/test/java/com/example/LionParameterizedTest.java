@@ -4,30 +4,34 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class LionParameterizedTest {
-    private final String sex;
-    private final boolean expectedHasMane;
 
-    public LionParameterizedTest(String sex, boolean expectedHasMane) {
+    private final String sex;
+    private final boolean hasManeExpected;
+
+    public LionParameterizedTest(String sex, boolean hasManeExpected) {
         this.sex = sex;
-        this.expectedHasMane = expectedHasMane;
+        this.hasManeExpected = hasManeExpected;
     }
 
     @Parameterized.Parameters
-    public static Object[][] getData() {
+    public static Object[][] getTextData() {
         return new Object[][]{
                 {"Самец", true},
-                {"Самка", false}
+                {"Самка", false},
         };
     }
 
     @Test
-    public void shouldCheckManePresence() throws Exception {
+    public void checkHasMane() throws Exception {
+
         Feline feline = Mockito.mock(Feline.class);
-        Lion lion = new Lion(feline, sex);
-        assertEquals(expectedHasMane, lion.doesHaveMane());
+        Lion lion = new Lion(sex, feline);
+
+        assertEquals(hasManeExpected, lion.doesHaveMane());
     }
 }
